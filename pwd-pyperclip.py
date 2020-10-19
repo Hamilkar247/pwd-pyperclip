@@ -2,14 +2,13 @@ import os
 import logging
 import argparse 
 import pyperclip as pc
-#def def_parser():
 
 
 def def_params():
     parser = argparse.ArgumentParser(
             description="Script to send pwd to clipboard"
     )
-    parser.add_argument("-l", "--loghami", actin='store_true', help="set debug")
+    parser.add_argument("-l", "--loghami", action='store_true', help="set debug")
     args = parser.parse_args()
     if args.loghami:
         logging.basicConfig(level=logging.DEBUG)
@@ -26,5 +25,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
