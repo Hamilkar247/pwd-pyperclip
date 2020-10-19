@@ -1,8 +1,7 @@
-import os
 import logging
 import argparse 
 import pyperclip as pc
-
+import subprocess
 
 def def_params():
     parser = argparse.ArgumentParser(
@@ -18,9 +17,9 @@ def def_params():
 
 def main():
     args=def_params()
-    bas_dir = os.path.dirname(os.path.realpath(__file__))
-    logging.debug('pwd:'+ bas_dir)
-    pc.copy(bas_dir)
+    pwd_var=subprocess.Popen('pwd', stdout=subprocess.PIPE)
+    output_pwd = pwd_var.stdout.read() #zawiera cos w stylu '\b\home\matball\projects\n' - 
+    pc.copy(str(output_pwd)[3:-1]) #używam substr by nie przekazywać do clipboard zbędnych znaków
 
 
 if __name__ == "__main__":
