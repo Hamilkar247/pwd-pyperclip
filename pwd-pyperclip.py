@@ -19,7 +19,7 @@ def main():
     args=def_params()
     pwd_var=subprocess.Popen('pwd', stdout=subprocess.PIPE)
     output_pwd = pwd_var.stdout.read() #zawiera cos w stylu '\b\home\matball\projects\n'
-    pc.copy(str(output_pwd)[3:-1]) #używam substr by nie przekazywać do clipboard zbędnych znaków
+    pc.copy(str(output_pwd)[3:-3]) #używam substr by nie przekazywać do clipboard zbędnych znaków
 
 
 if __name__ == "__main__":
